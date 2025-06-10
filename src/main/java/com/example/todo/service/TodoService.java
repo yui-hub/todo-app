@@ -1,25 +1,27 @@
 package com.example.todo.service;
 
-import org.springframework.stereotype.Service;
-
 import com.example.todo.model.Todo;
 import com.example.todo.repository.TodoRepository;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class TodoService {
+
     private final TodoRepository repository;
 
-    public TodoService(TodoRepository repository){
+    public TodoService(TodoRepository repository) {
         this.repository = repository;
     }
 
-    public List<Todo> getAllTodos(){
-        return repository.findAll();
+    public void addTodo(String name, String text, LocalDate deadline, boolean done) {
+        Todo todo = new Todo(name, text, deadline, done);
+        repository.save(todo);
     }
 
-    public void addTodo(String name, String text){
-        repository.save(new Todo(name,text));
+    public List<Todo> getAllTodos() {
+        return repository.findAll();
     }
 }
