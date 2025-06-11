@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>TODOアプリ</title>
+    <link  th:href="@{/css/style.css}"  rel="stylesheet">
 </head>
 <body>
-    <h1>TODO 登録フォーム</h1>
+    <header>
+        <h1>TODOアプリ</h1>
+    </header>
+    <h2>TODO 登録フォーム</h2>
 
     <!-- 新規追加フォーム -->
     <form method="post" action="/post" th:if="${todo} == null">
