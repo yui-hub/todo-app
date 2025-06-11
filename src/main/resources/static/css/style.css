@@ -1,11 +1,68 @@
-body{
+/* style.css */
+body {
     font-family: 'Arial', sans-serif;
-    background-color: aliceblue;
+    background-color: #d9f0f8;
+    margin: 0;
+    padding: 20px;
 }
 
-header{
-    background-color: aquamarine;
-    color:black;
-    padding: 20px;
-    text-align: center;
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+form {
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input, button {
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
 }
