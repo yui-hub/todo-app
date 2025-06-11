@@ -24,4 +24,20 @@ public class TodoService {
     public List<Todo> getAllTodos() {
         return repository.findAll();
     }
+
+    public Todo getTodoById(Integer id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public void updateTodo(Integer id, String name, String text, LocalDate deadline, boolean done) {
+        Todo todo = getTodoById(id);
+        if (todo != null) {
+            todo.setName(name);
+            todo.setText(text);
+            todo.setDeadline(deadline);
+            todo.setDone(done);
+            repository.save(todo);
+        }
+    }
 }
+
