@@ -62,5 +62,12 @@ public class TodoController {
         model.addAttribute("todos", service.getAllTodos());
         return "index";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTodo(@PathVariable Integer id) {
+      service.deleteTodo(id);
+      return "redirect:/";  // 削除後、トップページへリダイレクト
+}
+
 }
 

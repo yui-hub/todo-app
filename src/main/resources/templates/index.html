@@ -31,6 +31,9 @@
         <button type="submit">更新</button>
     </form>
 
+    
+
+
     <!-- エラーメッセージ -->
     <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 
@@ -42,6 +45,7 @@
             期限：<span th:text="${todo.deadline}">2025-06-30</span> ／
             完了：<span th:text="${todo.done} ? '済' : '未'">未</span>）
             <a th:href="@{'/edit/' + ${todo.id}}">編集</a>
+            <a th:href="@{'/delete/' + ${todo.id}}" onclick="return confirm('本当に削除しますか？')">削除</a>
         </li>
     </ul>
 </body>
