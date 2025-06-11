@@ -33,35 +33,32 @@ public class Todo {
         return name;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public LocalDate getDeadline() {
-        return deadline;
-    }
-
-    public Boolean getDone() {
-        return done;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getText() {
+        return text;
     }
 
     public void setText(String text) {
         this.text = text;
     }
 
+    public LocalDate getDeadline() {
+        return deadline;
+    }
+
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
+    }
+
+    public Boolean getDone() {
+        return done;
     }
 
     public void setDone(Boolean done) {
         this.done = done;
     }
 }
+

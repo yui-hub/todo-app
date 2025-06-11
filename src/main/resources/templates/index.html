@@ -7,13 +7,27 @@
 <body>
     <h1>TODO 登録フォーム</h1>
 
-    <form method="post" action="/post">
+    <!-- 新規追加フォーム -->
+    <form method="post" action="/post" th:if="${todo} == null">
         <input type="text" name="name" placeholder="名前">
         <input type="text" name="text" placeholder="やること">
         <input type="date" name="deadline" placeholder="期限日">
         <button type="submit">追加</button>
     </form>
 
+    <!-- 編集フォーム -->
+    <form method="post" action="/update" th:if="${todo} != null">
+        <input type="hidden" name="id" th:value="${todo.id}" />
+        <input type="text" name="name" th:value="${todo.name}" placeholder="名前">
+        <input type="text" name="text" th:value="${todo.text}" placeholder="やること">
+        <input type="date" name="deadline" th:value="${todo.deadline}" placeholder="期限日">
+        <label>
+            完了：<input type="checkbox" name="done" th:checked="${todo.done}" />
+        </label>
+        <button type="submit">更新</button>
+    </form>
+
+    <!-- エラーメッセージ -->
     <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 
     <h2>TODO一覧</h2>
@@ -23,7 +37,9 @@
             <span th:text="${todo.text}">やること</span>（
             期限：<span th:text="${todo.deadline}">2025-06-30</span> ／
             完了：<span th:text="${todo.done} ? '済' : '未'">未</span>）
+            <a th:href="@{'/edit/' + ${todo.id}}">編集</a>
         </li>
     </ul>
 </body>
 </html>
+
